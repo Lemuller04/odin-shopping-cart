@@ -34,6 +34,10 @@
   justify-self: end;
 }
 
+.product-info input:focus {
+  outline: 2px solid var(--highlight-color);
+}
+
 .shop-add-to-cart-section {
   display: grid;
   grid-template: auto auto / 1fr;
