@@ -18,10 +18,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: #e1daf7;
+    --text-color: #fff;
     --body-background: #3e3752;
     --highlight-color: #be63ff;
     --header-background: #2a2538;
+    --header-color: #e1daf7;
+    --downlight-color: #2a2538;
   }
 }
 

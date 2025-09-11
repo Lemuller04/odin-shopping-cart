@@ -1,8 +1,8 @@
-const Home = () => {
+const Home = ({ nome }) => {
   return (
     <>
       <h2>Home</h2>
-      <p>asjdasdjad</p>
+      <p>asjdasdjad {nome}</p>
     </>
   );
 };
