@@ -1,10 +1,29 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./styles/index.css";
 
-createRoot(document.getElementById('root')).render(
+import MainLayout from "./layouts/MainLayout.jsx";
+import ErrorPage from "./routes/ErrorPage.jsx";
+import Home from "./routes/Home.jsx";
+import Shop from "./routes/Shop.jsx";
+import Cart from "./routes/Cart.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "/shop", element: <Shop /> },
+      { path: "/cart", element: <Cart /> },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
-)
+);
