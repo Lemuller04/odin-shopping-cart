@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import "../styles/shop.css";
 
 const Shop = () => {
-  const { products, loading, error } = useOutletContext();
+  const { products, loading, error, cart, setCart } = useOutletContext();
   const [fieldAmount, setFieldAmount] = useState([]);
 
   if (loading) return <p>Loading...</p>;
@@ -22,6 +22,21 @@ const Shop = () => {
     setFieldAmount(newAmount);
   }
 
+  function handleAddButton(factor, index) {
+    if (fieldAmount[index] + factor < 1) return;
+    const newAmount = [...fieldAmount];
+    newAmount[index] += factor;
+    setFieldAmount(newAmount);
+  }
+
+  function handleCart(item, index) {
+    const newCart = { ...cart };
+    newCart[item.id]
+      ? (newCart[item.id] += fieldAmount[index])
+      : (newCart[item.id] = fieldAmount[index]);
+    setCart(newCart);
+  }
+
   return (
     <section className="shop-section">
       {products.map((p, index) => (
@@ -32,18 +47,17 @@ const Shop = () => {
             <p>${p.price}</p>
             <div className="shop-add-to-cart-section">
               <div className="shop-add-to-cart-buttons">
-                <button></button>
+                <button onClick={() => handleAddButton(-1, index)}></button>
                 <input
                   type="number"
                   min="1"
                   name="amount"
-                  id="amount"
-                  value={fieldAmount[index]}
+                  value={fieldAmount[index] || "1"}
                   onChange={(e) => handleChange(e, index)}
                 />
-                <button></button>
+                <button onClick={() => handleAddButton(1, index)}></button>
               </div>
-              <button>Add to Cart</button>
+              <button onClick={() => handleCart(p, index)}>Add to Cart</button>
             </div>
           </div>
         </div>

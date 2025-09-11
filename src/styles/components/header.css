@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, .5);
-  padding: 1rem;
+  padding: 1rem 3rem;
   z-index: 30;
   color: var(--header-color);
 }
@@ -85,6 +85,19 @@ a.active {
   z-index: 10;
   opacity: 0;
   animation: fadeIn 0.2s forwards;
+}
+
+.cart-number {
+  font-size: .9rem;
+  position: absolute;
+  background-color: #fff387;
+  color: var(--downlight-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  border: 2px solid var(--header-background);
+  line-height: 1.2;
 }
 
 @keyframes fadeIn {

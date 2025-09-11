@@ -7,14 +7,15 @@ const MainLayout = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState({});
 
   useEffect(() => {
     const fetchAllProducts = () => {
       fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .then((data) => {
-          setProducts(data);
           console.log("Data fetched sucessfully");
+          setProducts(data);
         })
         .catch((error) => {
           console.error(error);
@@ -30,8 +31,8 @@ const MainLayout = () => {
 
   return (
     <>
-      <Header />
-      <Outlet context={{ products, loading, error }} />
+      <Header cart={cart} />
+      <Outlet context={{ products, loading, error, cart, setCart }} />
     </>
   );
 };

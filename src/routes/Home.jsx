@@ -21,8 +21,10 @@ const Home = () => {
   return (
     <section className="home-section">
       <div className="image-container">
-        <img src={homeImage} alt="" />
-        <p>Thankyou for buying with us.</p>
+        <p className="home-img-credits">
+          Image by <a href="https://unsplash.com/@geniequo">Heshan Perera</a> at{" "}
+          <a href="https://unsplash.com/">Unsplash</a>
+        </p>
       </div>
       <main className="home-main">
         <div>

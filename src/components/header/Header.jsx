@@ -4,7 +4,7 @@ import "../../styles/components/header.css";
 
 import MobileMenuButton from "./MobileMenuButton.jsx";
 
-const Header = () => {
+const Header = ({ cart }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -27,7 +27,14 @@ const Header = () => {
               <NavLink to="/shop">Products</NavLink>
             </li>
             <li>
-              <NavLink to="/cart">Cart</NavLink>
+              <NavLink to="/cart">
+                Cart
+                {Object.keys(cart).length >= 1 && (
+                  <span className="cart-number">
+                    {Object.keys(cart).length}
+                  </span>
+                )}
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -48,6 +55,9 @@ const Header = () => {
           <li>
             <NavLink to="/cart" onClick={toggleMenu}>
               Cart
+              {Object.keys(cart).length >= 1 && (
+                <span className="cart-number">{Object.keys(cart).length}</span>
+              )}
             </NavLink>
           </li>
         </ul>
