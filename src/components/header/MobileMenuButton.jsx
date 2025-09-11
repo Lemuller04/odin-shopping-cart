@@ -1,6 +1,11 @@
 const MobileMenuButton = ({ isOpen, setIsOpen }) => {
   return (
-    <button onClick={setIsOpen} aria-label="toggle-menu" aria-expanded={isOpen}>
+    <button
+      className="hamburguer-menu"
+      onClick={setIsOpen}
+      aria-label="toggle-menu"
+      aria-expanded={isOpen}
+    >
       <svg
         fill="none"
         stroke="currentColor"

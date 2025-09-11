@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Header from "../components/header/Header.jsx";
+import Footer from "../components/footer/Footer.jsx";
 
 const MainLayout = () => {
   const [products, setProducts] = useState([]);
@@ -33,6 +34,7 @@ const MainLayout = () => {
     <>
       <Header cart={cart} />
       <Outlet context={{ products, loading, error, cart, setCart }} />
+      <Footer />
     </>
   );
 };
