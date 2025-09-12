@@ -7,6 +7,14 @@ import MobileMenuButton from "./MobileMenuButton.jsx";
 const Header = ({ cart }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  let cartNum = null;
+
+  try {
+    cartNum = Object.keys(cart).length;
+  } catch (e) {
+    console.error(e);
+    cartNum = null;
+  }
 
   return (
     <header>
@@ -29,11 +37,7 @@ const Header = ({ cart }) => {
             <li>
               <NavLink to="/cart">
                 Cart
-                {Object.keys(cart).length >= 1 && (
-                  <span className="cart-number">
-                    {Object.keys(cart).length}
-                  </span>
-                )}
+                {cartNum > 0 && <span className="cart-number">{cartNum}</span>}
               </NavLink>
             </li>
           </ul>
@@ -55,9 +59,7 @@ const Header = ({ cart }) => {
           <li>
             <NavLink to="/cart" onClick={toggleMenu}>
               Cart
-              {Object.keys(cart).length >= 1 && (
-                <span className="cart-number">{Object.keys(cart).length}</span>
-              )}
+              {cartNum > 0 && <span className="cart-number">{cartNum}</span>}
             </NavLink>
           </li>
         </ul>

@@ -9,6 +9,9 @@ const Home = () => {
   const [mensClothing, setMensClothing] = useState([]);
   const [womenClothing, setWomenClothing] = useState([]);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error...</p>;
+
   useEffect(() => {
     setMensClothing(filterProducts("men's clothing"));
     setWomenClothing(filterProducts("women's clothing"));

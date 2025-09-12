@@ -14,6 +14,8 @@
   --body-background: #f9f7fc;
   --highlight-color: #6640cf;
   --header-background: #f9f7fc;
+  --downlight-color: #2a2538;
+  --dark-background: #c8c6cc;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,6 +26,7 @@
     --header-background: #2a2538;
     --header-color: #e1daf7;
     --downlight-color: #2a2538;
+    --dark-background: #53496e;
   }
 }
 

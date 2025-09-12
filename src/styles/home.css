@@ -7,10 +7,11 @@
 .home-products-line h2 {
   border-bottom: 2px solid var(--downlight-color);
   border-top: 2px solid var(--downlight-color);
-  margin: 3rem 0 1rem 0;
+  margin: 3rem 0 0 0;
 }
 
 .home-products {
+  background-color: var(--dark-background);
   display: flex;
   overflow-x: auto;
   gap: 1rem;
@@ -59,9 +60,20 @@
   padding: 1rem 0;
 }
 
+@media (prefers-color-scheme: light) {
+  .shop-button a {
+    background-color: var(--highlight-color);
+    color: #fff;
+  }
+}
+
 @media (max-width: 800px) {
   .image-container {
     display: none;
+  }
+
+  .home-main {
+    padding: 1rem;
   }
 }
 
