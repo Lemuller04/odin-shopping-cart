@@ -32,6 +32,19 @@ const Cart = () => {
     setCart(newCart);
   }
 
+  function handleChange(e, item) {
+    const newCart = { ...cart };
+    newCart[item]++;
+    setCart(newCart);
+  }
+
+  function handleAddButton(factor, item) {
+    if (cart[item] + factor < 1) return;
+    const newCart = { ...cart };
+    newCart[item] += factor;
+    setCart(newCart);
+  }
+
   let total = 0;
 
   return (
@@ -50,10 +63,25 @@ const Cart = () => {
                     <p>${p.price} each</p>
                     <p>
                       Amount: {cart[p.id]} item{cart[p.id] > 1 ? "s" : ""} -
-                      Total price: ${cart[p.id] * p.price}
+                      Total price: ${(cart[p.id] * p.price).toFixed(2)}
                     </p>
                   </div>
                   <div className="cart-product-buttons">
+                    <button
+                      className="remove-1-button"
+                      onClick={() => handleAddButton(-1, p.id)}
+                    ></button>
+                    <input
+                      type="number"
+                      min="1"
+                      name="amount"
+                      value={cart[p.id]}
+                      onChange={(e) => handleChange(e, p.id)}
+                    />
+                    <button
+                      className="add-1-button"
+                      onClick={() => handleAddButton(1, p.id)}
+                    ></button>
                     <button onClick={() => handleRemoval(p.id)}>Remove</button>
                   </div>
                 </div>
@@ -63,7 +91,7 @@ const Cart = () => {
         })}
       </div>
       <div className="checkout">
-        <p>Total to pay: ${total}</p>
+        <p>Total to pay: ${total.toFixed(2)}</p>
         <button>Proceed to payment</button>
       </div>
     </main>
