@@ -41,13 +41,16 @@ const Shop = () => {
     <section className="shop-section">
       {products.map((p, index) => (
         <div key={p.id} className="shop-card">
-          <img src={p.image} alt="Product" />
+          <img src={p.image} alt={p.title} />
           <div className="product-info">
             <h3>{p.title}</h3>
             <p>${p.price}</p>
             <div className="shop-add-to-cart-section">
               <div className="shop-add-to-cart-buttons">
-                <button onClick={() => handleAddButton(-1, index)}></button>
+                <button
+                  aria-label="Decrease quantity"
+                  onClick={() => handleAddButton(-1, index)}
+                ></button>
                 <input
                   type="number"
                   min="1"
@@ -55,7 +58,10 @@ const Shop = () => {
                   value={fieldAmount[index] || "1"}
                   onChange={(e) => handleChange(e, index)}
                 />
-                <button onClick={() => handleAddButton(1, index)}></button>
+                <button
+                  aria-label="Increase quantity"
+                  onClick={() => handleAddButton(1, index)}
+                ></button>
               </div>
               <button onClick={() => handleCart(p, index)}>Add to Cart</button>
             </div>

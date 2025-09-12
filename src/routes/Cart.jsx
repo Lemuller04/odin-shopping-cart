@@ -34,7 +34,8 @@ const Cart = () => {
 
   function handleChange(e, item) {
     const newCart = { ...cart };
-    newCart[item]++;
+    const newValue = Math.max(1, parseInt(e.target.value) || 1);
+    newCart[item] = newValue;
     setCart(newCart);
   }
 
@@ -57,7 +58,7 @@ const Cart = () => {
               total += cart[p.id] * p.price;
               return (
                 <div key={p.id} className="cart-item">
-                  <img src={p.image} alt="Product in cart" />
+                  <img src={p.image} alt={p.title} />
                   <div className="cart-product-info">
                     <h3>{p.title}</h3>
                     <p>${p.price} each</p>
@@ -69,6 +70,7 @@ const Cart = () => {
                   <div className="cart-product-buttons">
                     <button
                       className="remove-1-button"
+                      aria-label="Decrease quantity"
                       onClick={() => handleAddButton(-1, p.id)}
                     ></button>
                     <input
@@ -80,6 +82,7 @@ const Cart = () => {
                     />
                     <button
                       className="add-1-button"
+                      aria-label="Increase quantity"
                       onClick={() => handleAddButton(1, p.id)}
                     ></button>
                     <button onClick={() => handleRemoval(p.id)}>Remove</button>
