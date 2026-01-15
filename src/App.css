@@ -1,0 +1,36 @@
+:root {
+    /* 60% - The "Cozy" Backgrounds */
+
+    /* Soft warm white (paper-like) */
+    --color-primary-bg: #fdfaf7;
+    /* Muted sand/nude for cards/sections */
+    --color-secondary-bg: #f2e9e4;
+
+    /* 30% - The "Sakura" Tones */
+
+    /* Dusty Sakura Pink */
+    --color-brand-main: #d8a7b1;
+    /* Deeper rose for headers/borders */
+    --color-brand-dark: #b5838d;
+
+    /* 10% - The "Action" Accents */
+
+    /* Vibrant Sakura for buttons */
+    --color-accent: #e5989b;
+    /* Darker pink for hover states */
+    --color-accent-hover: #d0878a;
+
+    /* Text & UI Elements */
+
+    /* Deep eggplant-grey (softer than black) */
+    --color-text-main: #4a4e69;
+    /* Muted mauve for secondary info */
+    --color-text-muted: #9a8c98;
+    /* Very subtle lines */
+    --color-border: #e6e1df;
+
+    /* Status */
+
+    /* Soft sage green for "Added to Cart" */
+    --color-success: #95d5b2;
+}
