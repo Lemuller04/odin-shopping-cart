@@ -1,6 +1,13 @@
+import "./App.css";
+import Header from "./components/header/Header.jsx";
+
 function App() {
   return (
-    <h1>Hello, world!</h1>
+    <>
+      <Header />
+      <h1>Hello, world!</h1>
+      <p>Testing</p>
+    </>
   )
 }
 
