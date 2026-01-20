@@ -1,18 +1,106 @@
 header.main {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 20;
 
-    & img {
-        margin: 0 10px;
+    /* top bar includes the logo img and the desktop nav/hamburguer buttom */
+    & .top-bar {
+        background: var(--color-brand-dark);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    & nav ul {
-        display: flex;
-        list-style-type: none;
+    & .top-bar img {
+        border-radius: 10px;
+        margin: 0 18px;
+    }
 
-        & li a {
-            padding: 6px 10px;
+    & .top-bar button {
+        margin: 20px 22px;
+    }
+
+    & .top-bar nav {
+        display: none;
+    }
+
+    & .top-bar nav ul {
+        display: flex;
+    }
+
+    & .top-bar nav ul li {
+        transition: background-color .2s linear;
+    }
+
+    & .top-bar nav ul li,
+    & .top-bar nav ul li a {
+        padding: 20px 10px;
+    }
+
+    & .top-bar nav ul li a {
+        color: var(--color-primary-bg);
+        font-size: 1.4rem;
+    }
+
+    /* the mobile nav toggled by the hamburguer menu button */
+    &>nav {
+        background-color: var(--color-secondary-bg);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        height: calc(100vh - 74px);
+        transform: translateX(100%);
+        z-index: 15;
+
+        & ul li {
+            border-bottom: 2px solid var(--color-brand-dark);
+        }
+
+        & ul li a {
+            display: inline-block;
+            font-size: 1.7rem;
+            text-decoration: none;
+            padding: 18px 144px 14px 52px;
+        }
+    }
+
+    & .backdrop {
+        background-color: transparent;
+        transition: background-color .3s linear;
+    }
+
+    & .visible-backdrop {
+        position: absolute;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, .5);
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 74px);
+    }
+
+    & li:hover {
+        background-color: var(--color-accent-hover);
+    }
+}
+
+@media (min-width: 630px) {
+    header.main {
+        & .top-bar button {
+            display: none;
+        }
+
+        & .top-bar nav {
+            display: block;
+        }
+
+        &>nav {
+            display: none;
+        }
+
+        & .backdrop {
+            display: none
         }
     }
 }

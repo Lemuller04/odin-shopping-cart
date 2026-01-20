@@ -1,0 +1,18 @@
+button.menu {
+    background-color: transparent;
+    color: var(--color-primary-bg);
+    scale: 160%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-primary-bg);
+    border-radius: 4px;
+
+    & svg {
+        transition: transform .2s ease-out;
+    }
+}
+
+.rotate {
+    transform: rotate(90deg);
+}

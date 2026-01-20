@@ -1,0 +1,46 @@
+.menu {
+    & ul {
+        list-style-type: none;
+    }
+}
+
+.closed {
+    animation: slide-out .3s both ease-out;
+}
+
+.open {
+    animation: slide-in .3s both ease-out;
+}
+
+.active {
+    background-color: var(--color-accent);
+    color: var(--color-primary-bg);
+}
+
+@media (min-width: 630px) {
+    .active {
+        background-image: linear-gradient(to top, var(--color-accent), var(--color-brand-dark));
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+        visibility: hidden;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+        visibility: visible;
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
