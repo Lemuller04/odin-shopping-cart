@@ -1,17 +1,21 @@
+import ErrorElement from "./pages/errorElement/ErrorElement.jsx";
 import App from "./App.jsx";
+import Shop from "./pages/shop/Shop.jsx";
+import Cart from "./pages/cart/cart.jsx";
 
 const routes = [
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    errorElement: <ErrorElement />
   },
   {
     path: "/shop",
-    element: <div>shop</div>
+    element: <Shop />
   },
   {
     path: "cart",
-    element: <div>cart</div>
+    element: <Cart />
   }
 ];
 
