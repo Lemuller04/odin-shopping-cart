@@ -46,6 +46,7 @@ const Header = () => {
                     menuIsOpen ? styles["visible-backdrop"] : "") + " " + styles["backdrop"]
                 }
                 onClick={toggleHambugerMenu}
+                data-testid="backdrop"
             ></div>
         </header>
     );
