@@ -4,6 +4,7 @@ footer.main {
     align-items: center;
 
     & p {
-        margin: 10px 0;
+        margin: 4px 0;
+        color: var(--color-text-muted);
     }
 }
