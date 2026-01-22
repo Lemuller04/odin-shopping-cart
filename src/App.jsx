@@ -1,15 +1,42 @@
-import Header from "./components/header/Header.jsx";
-import Footer from "./components/footer/Footer.jsx";
+import styles from "./App.module.css";
+import { Link, useOutletContext } from "react-router-dom";
+import ItemCard from "./components/itemCard/ItemCard.jsx";
 
-function App() {
+const App = () => {
+  const [fakeItems] = useOutletContext();
+
   return (
     <>
-      <Header />
-      <div className="body">
-        <h1>Hello, world!</h1>
-        <p>Testing</p>
+      <div className={"body" + " " + styles["home-body"]}>
+        <div className={styles["hero"]}>
+          <h1>Super Cool Stuff</h1>
+          <p>Welcome to the coolest web shop in the world!</p>
+          <p>Browse the latest trending items and the best offers available.</p>
+        </div>
+        <main className={styles["home-main"]}>
+          <section>
+            <h2>Today's Promotions</h2>
+            <div>
+              {fakeItems.map((i) => {
+                return (
+                  <ItemCard item={i} key={i.id} />
+                )
+              })}
+            </div>
+          </section>
+          <section>
+            <h2>Trending Clothes</h2>
+            <div>
+              {fakeItems.map((i) => {
+                return (
+                  <ItemCard item={i} key={i.id} />
+                )
+              })}
+            </div>
+          </section>
+          <Link to="/shop" className={styles["button"]}>See all the products</Link>
+        </main>
       </div>
-      <Footer />
     </>
   )
 }
