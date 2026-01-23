@@ -43,6 +43,27 @@ header.main {
         font-size: 1.4rem;
     }
 
+    & .top-bar nav ul li span {
+        right: 4px;
+    }
+
+    & .top-bar nav ul li span,
+    &>nav ul li span {
+        position: absolute;
+        top: 16px;
+        background-color: #dbd74d;
+        display: inline-flex;
+        line-height: 1;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        aspect-ratio: 1 / 1;
+        min-width: 1.5em;
+        border-radius: 50%;
+    }
+
+
+
     /* the mobile nav toggled by the hamburguer menu button */
     &>nav {
         background-color: var(--color-secondary-bg);
@@ -62,6 +83,10 @@ header.main {
             font-size: 1.7rem;
             text-decoration: none;
             padding: 18px 144px 14px 52px;
+        }
+
+        & ul li span {
+            left: 100px;
         }
     }
 

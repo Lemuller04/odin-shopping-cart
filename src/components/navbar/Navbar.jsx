@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 
 // The shouldAnimate prop is to prevent the element from being animated on the first render
 
-const Navbar = ({ links, isOpen, shouldAnimate }) => {
+const Navbar = ({ links, isOpen, shouldAnimate, cartLength }) => {
   const location = useLocation();
 
   return (
@@ -22,6 +22,7 @@ const Navbar = ({ links, isOpen, shouldAnimate }) => {
                 to={ l.path }
                 aria-current={ location.pathname === l.path ? "page" : undefined }
               >{l.text}</Link>
+              {l.text === "Cart" && cartLength > 0 && <span>{cartLength}</span>}
             </li>
           );
         })}
