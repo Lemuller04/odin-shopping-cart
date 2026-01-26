@@ -7,7 +7,7 @@ const ItemCard = ({ item }) => {
             <h3>{item.title}</h3>
             <div className={styles["bottom-line"]}>
                 <span>{item.rating}</span>
-                <span>${item.price}</span>
+                <span>${item.price.toFixed(2)}</span>
             </div>
         </div>
     )

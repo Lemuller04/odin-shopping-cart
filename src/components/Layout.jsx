@@ -10,10 +10,8 @@ const Layout = () => {
   let cartLength = 0;
 
   for (let i of cart) {
-    cartLength += i.amount;
+    cartLength += Number(i.amount);
   }
-
-  console.log(cart);
 
   return (
     <>

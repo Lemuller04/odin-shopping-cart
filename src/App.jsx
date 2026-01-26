@@ -17,7 +17,7 @@ const App = () => {
           <section>
             <h2>Today's Promotions</h2>
             <div>
-              {fakeItems.map((i) => {
+              {fakeItems.filter(e => e.category === "CA").map((i) => {
                 return (
                   <ItemCard item={i} key={i.id} />
                 )
@@ -27,7 +27,7 @@ const App = () => {
           <section>
             <h2>Trending Clothes</h2>
             <div>
-              {fakeItems.map((i) => {
+              {fakeItems.filter(e => e.category === "CB").map((i) => {
                 return (
                   <ItemCard item={i} key={i.id} />
                 )
