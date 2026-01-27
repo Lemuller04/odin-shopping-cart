@@ -8,11 +8,10 @@ describe("Header Integration", () => {
     const user = userEvent.setup();
     render(<Header />);
 
-    const navs = screen.getAllByRole("navigation");
-    const mobileNav = navs[1]; 
-    const hamburger = screen.getByRole("button", { name: /toggle-menu/i });
+    const nav = screen.getByRole("navigation");
+    const hamburger = screen.getByRole("button");
 
-    expect(mobileNav.className).not.toContain("open");
+    expect(nav.className).not.toContain("open");
     expect(hamburger.getAttribute("aria-expanded")).toBe("false");
 
     await user.click(hamburger);
@@ -24,14 +23,21 @@ describe("Header Integration", () => {
     const user = userEvent.setup();
     render(<Header />);
 
-    const hamburger = screen.getByRole("button", { name: /toggle-menu/i });
+    const hamburger = screen.getByRole("button");
 
     await user.click(hamburger);
     expect(hamburger.getAttribute("aria-expanded")).toBe("true");
 
-    const backdrop = screen.getByTestId("backdrop"); 
+    const backdrop = screen.getByTestId("backdrop");
     await user.click(backdrop);
 
     expect(hamburger.getAttribute("aria-expanded")).toBe("false");
+  });
+
+  it("does not apply animation classes on mount", () => {
+    render(<Header />);
+    const nav = screen.getByRole("navigation");
+
+    expect(nav.className).not.toContain("closed");
   });
 });

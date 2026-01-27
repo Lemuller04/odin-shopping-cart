@@ -1,131 +1,109 @@
 header.main {
+    background: var(--color-brand-main);
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
-    z-index: 20;
+    z-index: 15;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
 
-    /* top bar includes the logo img and the desktop nav/hamburguer buttom */
-    & .top-bar {
-        background: var(--color-brand-dark);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    & .top-bar img {
-        border-radius: 10px;
-        margin: 0 18px;
-    }
-
-    & .top-bar button {
-        margin: 20px 22px;
-    }
-
-    & .top-bar nav {
-        display: none;
-    }
-
-    & .top-bar nav ul {
-        display: flex;
-    }
-
-    & .top-bar nav ul li {
-        transition: background-color .2s linear;
-    }
-
-    & .top-bar nav ul li,
-    & .top-bar nav ul li a {
-        padding: 20px 10px;
-    }
-
-    & .top-bar nav ul li a {
-        color: var(--color-primary-bg);
-        font-size: 1.4rem;
-    }
-
-    & .top-bar nav ul li span {
-        right: 4px;
-    }
-
-    & .top-bar nav ul li span,
-    &>nav ul li span {
-        position: absolute;
-        top: 16px;
-        background-color: #dbd74d;
-        display: inline-flex;
-        line-height: 1;
-        align-items: center;
-        justify-content: center;
-        padding: 4px;
-        aspect-ratio: 1 / 1;
-        min-width: 1.5em;
-        border-radius: 50%;
-    }
-
-
-
-    /* the mobile nav toggled by the hamburguer menu button */
-    &>nav {
-        background-color: var(--color-secondary-bg);
-        position: absolute;
-        top: 100%;
-        right: 0;
-        height: calc(100vh - 68px);
-        transform: translateX(100%);
-        z-index: 15;
-
-        & ul li {
-            border-bottom: 2px solid var(--color-brand-dark);
-        }
-
-        & ul li a {
-            display: inline-block;
-            font-size: 1.7rem;
-            text-decoration: none;
-            padding: 18px 144px 14px 52px;
-        }
-
-        & ul li span {
-            left: 100px;
-        }
-    }
-
-    & .backdrop {
-        background-color: transparent;
-        transition: background-color .3s linear;
-    }
-
-    & .visible-backdrop {
-        position: absolute;
-        z-index: 10;
-        background-color: rgba(0, 0, 0, .5);
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 68px);
-    }
-
-    & li:hover {
-        background-color: var(--color-accent-hover);
+    & img {
+        margin: .3em .8em;
     }
 }
 
+header.main>nav {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+    background-color: var(--color-secondary-bg);
+    height: calc(100vh - 60px);
+
+    & a {
+        font-size: 2rem;
+        display: inline-block;
+        padding: 10px 120px 10px 40px;
+        width: 100%;
+        transition: background-color .2s linear;
+    }
+
+    & a:hover {
+        background-color: var(--color-accent-hover);
+        color: var(--color-primary-bg);
+    }
+
+    & a span {
+        position: absolute;
+        color: var(--color-text-main);
+        top: 5%;
+        left: 39%;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: yellow;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+header .backdrop {
+    position: absolute;
+    top: 100%;
+    height: calc(100vh - 60px);
+    width: 100vw;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, .3);
+}
+
 @media (min-width: 630px) {
-    header.main {
-        & .top-bar button {
-            display: none;
+    header.main>nav {
+        position: static;
+        height: fit-content;
+        visibility: visible !important;
+        transform: translateX(0) !important;
+        display: block !important;
+        background-color: var(--color-brand-main);
+        height: 100%;
+
+        & ul {
+            display: flex;
+            align-items: center;
+            height: 100%;
         }
 
-        & .top-bar nav {
-            display: block;
+        & ul li {
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
-        &>nav {
-            display: none;
+        & a {
+            font-size: 1.5rem;
+            padding: 0 1em;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            transition: background-color .2s linear;
         }
 
-        & .backdrop {
-            display: none
+        & a:hover {
+            background-color: var(--color-accent-hover);
+            color: var(--color-primary-bg);
         }
+
+        & a span {
+            left: 70%;
+        }
+    }
+
+    .backdrop {
+        display: none;
+    }
+
+    button[class*="mobile-nav"] {
+        display: none !important;
     }
 }

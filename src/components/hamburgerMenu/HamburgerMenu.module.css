@@ -1,16 +1,31 @@
-button.menu {
+button.mobile-nav {
     background-color: transparent;
     color: var(--color-primary-bg);
-    scale: 160%;
+
+    height: 48px;
+    width: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin: .3em .8em;
+
     border: 2px solid var(--color-primary-bg);
     border-radius: 4px;
+
+    transition: transform .2s linear;
 
     & svg {
         transition: transform .2s ease-out;
     }
+
+    & path {
+        transition: opacity .15s linear
+    }
+}
+
+button.mobile-nav:active {
+    transform: scale(90%);
 }
 
 .rotate {

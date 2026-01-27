@@ -1,5 +1,33 @@
-.bottom-line {
+.horizontal {
     display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
+    gap: 4px;
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4px;
+    }
+
+    & p {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    & p {
+        display: flex;
+        justify-content: space-between;
+    }
 }

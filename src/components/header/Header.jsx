@@ -4,53 +4,56 @@ import HamburgerMenu from "../hamburgerMenu/HamburgerMenu.jsx";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo-200-50.webp";
 
-const Header = ({ cartLength }) => {
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
-    const [isFirstRender, setIsFirstRender] = useState(true);
-    const toggleHambugerMenu = () => setMenuIsOpen(!menuIsOpen);
-    const enableMenuAnimation = () => setIsFirstRender(false);
+const Header = ({ cartLength = 2 }) => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  const toggleHambugerMenu = () => setMenuIsOpen(!menuIsOpen);
+  const enableMenuAnimation = () => setIsFirstRender(false);
 
-    const navLinks = [
-        {
-            path: "/",
-            text: "Home",
-        },
-        {
-            path: "/shop",
-            text: "Shop",
-        },
-        {
-            path: "/cart",
-            text: "Cart"
-        }
-    ]
+  const links = [
+    {
+      path: "/",
+      text: "Home",
+    },
+    {
+      path: "/shop",
+      text: "Shop",
+    },
+    {
+      path: "/cart",
+      text: "Cart",
+    },
+  ];
 
-    return (
-        <header className={styles["main"]}>
-            <div className={styles["top-bar"]}>
-                <img src={logo} alt="Gray image placeholder for website logo" width="200" height="50" />
-                <Navbar links={navLinks} cartLength={cartLength} />
-                <HamburgerMenu
-                    isOpen={menuIsOpen}
-                    setIsOpen={toggleHambugerMenu}
-                    enableAnimation={enableMenuAnimation}
-                />
-            </div>
-            <Navbar
-                links={ navLinks }
-                isOpen={menuIsOpen}
-                shouldAnimate={!isFirstRender}
-                cartLength={cartLength}
-            />
-            <div
-                className={(
-                    menuIsOpen ? styles["visible-backdrop"] : "") + " " + styles["backdrop"]
-                }
-                onClick={toggleHambugerMenu}
-                data-testid="backdrop"
-            ></div>
-        </header>
-    );
+  return (
+    <header className={styles["main"]}>
+      <img
+        src={logo}
+        alt="Placeholder for website logo"
+        width="200"
+        height="50"
+      />
+      <HamburgerMenu
+        isOpen={menuIsOpen}
+        setIsOpen={toggleHambugerMenu}
+        enableAnimation={enableMenuAnimation}
+      />
+      <Navbar
+        links={links}
+        isOpen={menuIsOpen}
+        shouldAnimate={!isFirstRender}
+        cartLength={cartLength}
+        toggleMenu={toggleHambugerMenu}
+      />
+      <div
+        onClick={() => {
+          setMenuIsOpen(false);
+        }}
+        className={`${!menuIsOpen ? "removed" : ""} ${styles.backdrop}`}
+        data-testid="backdrop"
+      ></div>
+    </header>
+  );
 };
 
 export default Header;

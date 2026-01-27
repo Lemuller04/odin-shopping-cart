@@ -9,22 +9,16 @@
 }
 
 .closed {
-    animation: slide-out .3s both ease-out;
+    animation: slide-out .2s both ease-out;
 }
 
 .open {
-    animation: slide-in .3s both ease-out;
+    animation: slide-in .2s both ease-out;
 }
 
 .active {
     background-color: var(--color-accent);
     color: var(--color-primary-bg);
-}
-
-@media (min-width: 630px) {
-    .active {
-        background-image: linear-gradient(to top, var(--color-accent), var(--color-brand-dark));
-    }
 }
 
 @keyframes slide-out {
