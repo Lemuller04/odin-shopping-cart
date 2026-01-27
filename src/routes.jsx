@@ -1,9 +1,8 @@
-import Layout from "./components/Layout.jsx";
+import Layout from "./Layout.jsx";
 import ErrorElement from "./pages/errorElement/ErrorElement.jsx";
-import App from "./App.jsx";
+import Home from "./pages/home/Home.jsx";
 import Shop from "./pages/shop/Shop.jsx";
 import Cart from "./pages/cart/Cart.jsx";
-import fakeItems from "./pages/shop/fakeItems.js";
 
 const routes = [
   {
@@ -13,7 +12,7 @@ const routes = [
     children: [
       {
         index: true,
-        element: <App />
+        element: <Home />
       },
       {
         path: "/shop",
