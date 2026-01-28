@@ -1,10 +1,11 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Navbar from "../navbar/Navbar.jsx";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu.jsx";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo-200-50.webp";
 
-const Header = ({ cartLength = 2 }) => {
+const Header = ({ cartLength }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const toggleHambugerMenu = () => setMenuIsOpen(!menuIsOpen);
@@ -27,12 +28,7 @@ const Header = ({ cartLength = 2 }) => {
 
   return (
     <header className={styles["main"]}>
-      <img
-        src={logo}
-        alt="Placeholder for website logo"
-        width="200"
-        height="50"
-      />
+      <img src={logo} alt="Site logo" width="200" height="50" />
       <HamburgerMenu
         isOpen={menuIsOpen}
         setIsOpen={toggleHambugerMenu}
@@ -54,6 +50,10 @@ const Header = ({ cartLength = 2 }) => {
       ></div>
     </header>
   );
+};
+
+Header.propTypes = {
+  cartLength: PropTypes.number,
 };
 
 export default Header;
