@@ -1,33 +1,28 @@
 .horizontal {
-    display: flex;
+    display: grid;
+    grid-template: auto auto / auto auto;
     gap: 4px;
 
-    &>div {
-        display: flex;
-        flex-direction: column;
+    & .details {
         justify-content: space-between;
-        gap: 4px;
+        padding: 1em;
     }
+}
 
-    & p {
-        display: flex;
-        justify-content: space-between;
-    }
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .vertical {
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
 
-    &>div {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    & p {
-        display: flex;
-        justify-content: space-between;
-    }
+.horizontal p,
+.vertical p {
+    display: flex;
+    justify-content: space-between;
 }

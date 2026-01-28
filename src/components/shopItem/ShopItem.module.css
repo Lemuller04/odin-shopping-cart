@@ -1,73 +1,28 @@
-.card-container {
-    background-color: var(--color-secondary-bg);
-    padding: 10px 20px;
-    border-radius: 18px;
-    width: fit-content;
+.horizontal {
+    display: grid;
+    grid-template: auto auto / auto auto;
+    gap: 4px;
 
-    &>div::first-of-type {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: fit-content;
-        justify-self: center;
-    }
-
-    &>div>img {
-        width: 250px;
-        height: 250px;
-        border-radius: 10px;
-    }
-
-    &>div>div {
-        width: 100%;
-        padding: 0 12px;
-        display: flex;
+    & .details {
         justify-content: space-between;
+        padding: 1em;
     }
 }
 
-.actions-line {
+.details {
     display: flex;
-    justify-content: center;
-
-    & input {
-        width: 40px;
-        text-align: center;
-        font-size: 1.2rem;
-    }
-
-    & button {
-        padding: 4px 12px;
-        background-color: var(--color-accent);
-        transition: background-color .1s linear;
-        outline: none;
-        border: none;
-        font-size: 1.2em;
-    }
-
-    & button:hover {
-        background-color: var(--color-accent-hover);
-    }
-
-    & button:active {
-        transform: scale(95%);
-    }
-
-    & button:first-of-type {
-        border-radius: 12px 0 0 12px;
-    }
-
-    & button:last-of-type:active {
-        background-color: var(--color-success);
-    }
-
-    & :nth-child(odd) {
-        border-radius: 0 12px 12px 0;
-    }
+    flex-direction: column;
+    gap: 4px;
 }
 
-.add-to-cart {
-    margin-left: 20px;
-    border-radius: 30px;
-    padding: 4px 16px;
+.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.horizontal p,
+.vertical p {
+    display: flex;
+    justify-content: space-between;
 }

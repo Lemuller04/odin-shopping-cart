@@ -1,11 +1,12 @@
-.products {
-    padding: 20px;
+.shop-main ul {
     display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(280px, 1fr));
+    grid-template: auto / repeat(auto-fit, minmax(370px, 1fr));
     gap: 20px;
-}
+    padding: .8em;
 
-.h1 {
-    text-align: center;
-    margin-top: 15px;
+    & li {
+        background-color: var(--color-secondary-bg);
+        padding: .6em;
+        border-radius: 10px;
+    }
 }

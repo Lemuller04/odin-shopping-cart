@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
@@ -34,6 +35,14 @@ const Navbar = ({ links, isOpen, shouldAnimate, cartLength, toggleMenu }) => {
       </ul>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  links: PropTypes.array,
+  isOpen: PropTypes.bool,
+  shouldAnimate: PropTypes.bool,
+  cartLength: PropTypes.number,
+  toggleMenu: PropTypes.func,
 };
 
 export default Navbar;
