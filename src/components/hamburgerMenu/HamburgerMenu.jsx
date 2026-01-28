@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "./HamburgerMenu.module.css";
 
 const HamburgerMenu = ({ isOpen, setIsOpen, enableAnimation }) => {
@@ -39,6 +40,12 @@ const HamburgerMenu = ({ isOpen, setIsOpen, enableAnimation }) => {
       </svg>
     </button>
   );
+};
+
+HamburgerMenu.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  enableAnimation: PropTypes.func.isRequired,
 };
 
 export default HamburgerMenu;
