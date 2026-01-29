@@ -1,6 +1,6 @@
 .horizontal {
     display: grid;
-    grid-template: auto auto / auto auto;
+    grid-template: 1fr auto / auto auto;
     gap: 4px;
 
     & .details {
