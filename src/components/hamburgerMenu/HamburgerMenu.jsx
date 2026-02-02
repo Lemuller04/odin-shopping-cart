@@ -27,7 +27,6 @@ const HamburgerMenu = ({ isOpen, setIsOpen, enableAnimation }) => {
           strokeWidth="2"
           d="M6 18L18 6M6 6l12 12"
           className={isOpen ? "opaque" : "transparent"}
-          data-testid="path1"
         />
         <path
           strokeLinecap="round"
@@ -35,7 +34,6 @@ const HamburgerMenu = ({ isOpen, setIsOpen, enableAnimation }) => {
           strokeWidth="2"
           d="M4 6h16M4 12h16M4 18h16"
           className={isOpen ? "transparent" : "opaque"}
-          data-testid="path2"
         />
       </svg>
     </button>

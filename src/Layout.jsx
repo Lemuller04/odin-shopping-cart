@@ -12,7 +12,10 @@ const Layout = () => {
   useEffect(() => {
     const fetchItems = () => {
       fetch("https://fakestoreapi.com/products")
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch");
+          return res.json();
+        })
         .then((data) => setProducts(data))
         .catch((err) => setError(err))
         .finally(() => setLoading(false));
@@ -20,6 +23,10 @@ const Layout = () => {
 
     fetchItems();
   }, []);
+
+  const clearCart = () => {
+    setCart([]);
+  };
 
   const addToCart = (item, amount) => {
     setCart((prevCart) => {
@@ -83,7 +90,14 @@ const Layout = () => {
     <>
       <Header cartLength={cartLength} />
       <Outlet
-        context={{ products, cart, addToCart, setItemAmount, removeFromCart }}
+        context={{
+          products,
+          cart,
+          addToCart,
+          setItemAmount,
+          removeFromCart,
+          clearCart,
+        }}
       />
       <Footer />
     </>
