@@ -4,6 +4,7 @@
     flex-direction: column;
     margin-top: 10em;
     gap: 1em;
+    position: relative
 }
 
 main.cart {
@@ -42,9 +43,39 @@ main.cart {
         border: 2px solid var(--color-border);
         border-radius: 50px;
         font-size: 1.2em;
+        transition: background-color .2s linear;
+    }
+
+    & button:active {
+        background-color: var(--color-success);
+    }
+
+    & button:hover {
+        background-color: var(--color-accent-hover);
     }
 
     & * {
         text-align: center;
+    }
+}
+
+@media (min-width: 750px) {
+    .cart {
+        display: grid !important;
+        justify-content: center;
+        grid-template: auto 1fr / minmax(360px, 700px) minmax(360px, 700px);
+
+        & h1 {
+            grid-area: 1 / 1 / 2 / 3;
+            text-align: center;
+        }
+
+        & ul {
+            align-self: start;
+        }
+
+        & .summary {
+            align-self: start;
+        }
     }
 }

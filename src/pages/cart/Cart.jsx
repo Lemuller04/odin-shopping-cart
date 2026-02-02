@@ -3,7 +3,7 @@ import CartItem from "../../components/cartItem/CartItem.jsx";
 import styles from "./Cart.module.css";
 
 const Cart = () => {
-  const { cart, setItemAmount, removeFromCart } = useOutletContext();
+  const { cart, setItemAmount, removeFromCart, clearCart } = useOutletContext();
 
   if (cart.length < 1) {
     return (
@@ -24,12 +24,29 @@ const Cart = () => {
               key={p.id}
               item={p}
               direction="horizontal"
-              updateCart={setItemAmount}
-              buttonFunction={removeFromCart}
+              setItemAmount={setItemAmount}
+              removeFromCart={removeFromCart}
             />
           );
         })}
       </ul>
+      <div className={styles.summary}>
+        <h2>Summary:</h2>
+        <div>
+          Total cart price: $
+          {cart.reduce((sum, i) => sum + i.amount * i.price, 0).toFixed(2)}
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            alert("The cake is a lie.");
+            clearCart();
+          }}
+        >
+          Check out
+        </button>
+        <p>This is a fake store with fake items made to practice React</p>
+      </div>
     </main>
   );
 };
