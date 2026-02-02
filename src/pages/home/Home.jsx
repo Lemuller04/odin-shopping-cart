@@ -18,13 +18,21 @@ const Home = () => {
         <h2>Trending Clothes</h2>
         <ul>
           {clothing.map((p) => {
-            return <ItemCard key={p.id} item={p} direction="vertical" />;
+            return (
+              <li key={p.id}>
+                <ItemCard item={p} direction="vertical" />
+              </li>
+            );
           })}
         </ul>
         <h2>Todays Promotions</h2>
         <ul>
           {jewelery.map((p) => {
-            return <ItemCard key={p.id} item={p} direction="vertical" />;
+            return (
+              <li key={p.id}>
+                <ItemCard item={p} direction="vertical" />
+              </li>
+            );
           })}
         </ul>
       </div>

@@ -13,7 +13,7 @@ const Shop = () => {
             <ShopItem
               key={p.id}
               item={p}
-              updateCart={addToCart}
+              addToCart={addToCart}
               direction="horizontal"
             />
           );
