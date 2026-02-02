@@ -1,16 +1,66 @@
-# React + Vite
+# Shopping Cart — React Practice Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a study-focused React application built as part of The Odin Project – React Curriculum.
+The goal was to practice core React concepts such as component composition, state management, routing, and side effects.
 
-Currently, two official plugins are available:
+This is not a production-ready app, but a learning exercise designed to solidify fundamentals and explore best practices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Multi-page application using React Router
+- Home page
+- Shop page
+- Cart page
+- Product data fetched from the FakeStore API
+- Shopping cart functionality:
+    - Add items to cart
+    - Adjust item quantities
+    - Remove items from cart
+    - Live cart item count in the navigation bar
+    - Controlled inputs with increment/decrement controls
+    - Basic error and loading handling
+    - Modular component structure
+    - Styled using CSS Modules
+    - Prop validation using PropTypes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Learning Goals
 
-## Expanding the ESLint configuration
+This project was created to practice and understand:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Component-driven architecture
+- State lifting vs local state
+- Derived state vs stored state
+- React hooks (useState, useEffect)
+- Client-side routing with nested layouts
+- Immutable state updates
+- Basic accessibility considerations
+- Separation of UI concerns
+- Some architectural decisions favor clarity and learning over scalability.
+
+## Tech Stack
+
+- React
+- React Router
+- Vite
+- CSS Modules
+- FakeStore API
+- PropTypes
+
+## Notes & Limitations
+
+- This project is intentionally kept simple and aligned with curriculum requirements.
+- Cart logic and validation are implemented for learning purposes and are not fully centralized.
+- Some patterns could be refactored (e.g. reducer-based state, shared domain utilities) if this project were extended further.
+- No real checkout or payment system is implemented.
+
+## Testing
+
+This project was tested using React Testing Library as part of the curriculum, focusing on component behavior rather than external libraries such as react-router-dom.
+
+## Acknowledgements
+
+The Odin Project
+ — for the curriculum and project guidance
+
+FakeStore API
+ — for mock product data
