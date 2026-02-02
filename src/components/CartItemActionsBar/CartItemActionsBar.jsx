@@ -14,7 +14,10 @@ const CartItemActionsBar = ({ item, setItemAmount, removeFromCart }) => {
 
   const checkInput = (e) => {
     const num = Number(e.target.value);
-    if (isNaN(num) || !Number.isInteger(num) || num < 1) removeFromCart(item);
+    if (isNaN(num) || !Number.isInteger(num) || num < 1) {
+      removeFromCart(item);
+      return;
+    }
     setItemAmount(item, num);
   };
 

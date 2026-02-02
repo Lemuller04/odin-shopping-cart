@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./ShopItemActionsBar.module.css";
 
 const ShopItemActionsBar = ({ addToCart, item }) => {
@@ -66,6 +67,18 @@ const ShopItemActionsBar = ({ addToCart, item }) => {
       </button>
     </div>
   );
+};
+
+ShopItemActionsBar.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ShopItemActionsBar;

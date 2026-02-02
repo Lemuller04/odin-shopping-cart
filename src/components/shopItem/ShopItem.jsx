@@ -1,20 +1,28 @@
+import PropTypes from "prop-types";
 import ItemCard from "../itemCard/ItemCard.jsx";
-import ActionsBar from "../actionsBar/ActionsBar.jsx";
+import ShopItemActionsBar from "../ShopItemActionsBar/ShopItemActionsBar.jsx";
 import styles from "./ShopItem.module.css";
 
-const ShopItem = ({ item, updateCart, direction }) => {
+const ShopItem = ({ item, addToCart, direction }) => {
   return (
     <li className={styles[direction]}>
       <ItemCard item={item} />
-      <ActionsBar
-        item={item}
-        defaultAmount={1}
-        updateCart={updateCart}
-        buttonText="Add to cart"
-        buttonFunction={updateCart}
-      />
+      <ShopItemActionsBar addToCart={addToCart} item={item} />
     </li>
   );
+};
+
+ShopItem.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.shape({
+      rate: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+  direction: PropTypes.string,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ShopItem;
